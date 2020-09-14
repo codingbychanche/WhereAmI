@@ -42,12 +42,12 @@
         android:id="@+id/speed_remerk"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:hint="remark"
         android:text="@string/speed_remark"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/speed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/high" />
+        app:layout_constraintTop_toTopOf="@+id/speed" />
 
     <TextView
         android:id="@+id/distance_traveled_remark"
@@ -75,10 +75,11 @@
         android:id="@+id/speed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:hint="speed"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/speed_remerk" />
+        app:layout_constraintTop_toBottomOf="@+id/high" />
 
     <TextView
         android:id="@+id/distance_traveled"
@@ -146,6 +147,17 @@
         android:text="@string/sunset_remark"
         app:layout_constraintStart_toStartOf="@+id/time_of_sunrise"
         app:layout_constraintTop_toBottomOf="@+id/time_of_sunrise" />
+
+    <TextView
+        android:id="@+id/avarage_speed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:hint="avr_speed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/speed"
+        app:layout_constraintTop_toTopOf="@+id/speed" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -38,15 +38,13 @@ public class Environment extends Thread {
     // Calc
     private Location lastLoc;
     private double totalDistanceTraveledIn_m, speedIn_ms, speedIn_kmH, heightIn_m;
+    private DataToAnalyze speedData;
 
     // Timing
     private long nowIn_ms, lastUpdateIn_ms, lastUpdateIn_SEC;
 
     //
     EnvironmentInterf receiver;
-
-    // Statistics
-    DataToAnalyze speedData;
 
     private final static float MIN_SPEED_IN_KMH_FOR_DISTANCE_CALC = 5;
 
@@ -65,6 +63,8 @@ public class Environment extends Thread {
         Criteria criteria = new Criteria();
         criteria.setAccuracy(Criteria.ACCURACY_FINE);
         provider = locationManager.getBestProvider(criteria, true);
+
+        speedData = new DataToAnalyze(100);
 
         handler = new Handler();
     }
@@ -112,7 +112,7 @@ public class Environment extends Thread {
                     speedIn_ms = currentLocation.getSpeed();
                     speedIn_kmH = (speedIn_ms / 1000) * 3600;
                     speedData.add(speedIn_kmH);
-                    double avrSpeedIn_kmH=speedData.getAverageSlope();
+                    double avrSpeedIn_kmH = speedData.getAverageSlope();
 
                     // Distance traveled since last location update
                     if (lastLoc != null && avrSpeedIn_kmH > MIN_SPEED_IN_KMH_FOR_DISTANCE_CALC)
@@ -128,7 +128,7 @@ public class Environment extends Thread {
                             String postalCode = addresses.get(0).getPostalCode();
                             environmentAddress = new EnvironmentAddress(addressLine1, city, state, postalCode);
                         } else
-                            environmentAddress=new EnvironmentAddress("-","-","-","-");
+                            environmentAddress = new EnvironmentAddress("-", "-", "-", "-");
 
                         // Height
                         heightIn_m = (float) currentLocation.getAltitude();
@@ -141,7 +141,7 @@ public class Environment extends Thread {
                         // Save current time for the calculation of the update frequency.
                         lastUpdateIn_ms = nowIn_ms;
 
-                        receiver.getEnviromentalData(environmentAddress, (float)heightIn_m, (float)speedIn_kmH, (float)totalDistanceTraveledIn_m, currentLocation.getLongitude(), currentLocation.getLatitude());
+                        receiver.getEnviromentalData(environmentAddress, (float) heightIn_m, (float) speedIn_kmH, (float)avrSpeedIn_kmH,(float) totalDistanceTraveledIn_m, currentLocation.getLongitude(), currentLocation.getLatitude());
                         receiver.getStatusData(nowIn_ms, lastUpdateIn_SEC, "OK");
 
                     } catch (IOException e) {

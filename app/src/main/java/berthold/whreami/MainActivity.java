@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements EnvironmentInterf
 
     // UI
     private ProgressBar waitingForGpsView;
-    private TextView gpsStatusView, gpsCoordinatesView, locationNameAndAdressView, speedView, heighView, distanceView,timeZoneView,sunriseView,sunsetView;
+    private TextView gpsStatusView, gpsCoordinatesView, locationNameAndAdressView, speedView,avrSpeedView, heighView, distanceView,timeZoneView,sunriseView,sunsetView;
 
 
     //
@@ -77,6 +77,7 @@ public class MainActivity extends AppCompatActivity implements EnvironmentInterf
         // New
         locationNameAndAdressView = findViewById(R.id.name_and_address_of_current_location);
         speedView = findViewById(R.id.speed);
+        avrSpeedView=findViewById(R.id.avarage_speed);
         heighView = findViewById(R.id.high);
         distanceView = findViewById(R.id.distance_traveled);
 
@@ -103,7 +104,7 @@ public class MainActivity extends AppCompatActivity implements EnvironmentInterf
      * @param lat
      */
     @Override
-    public void getEnviromentalData(final EnvironmentAddress environmentAddress, final float heightIn_m, final float getSpeedIn_kmH, final float distanceTraveledIn_m, final Double lon, final Double lat) {
+    public void getEnviromentalData(final EnvironmentAddress environmentAddress, final float heightIn_m, final float getSpeedIn_kmH, final float avrSpeedIn_kmH, final float distanceTraveledIn_m, final Double lon, final Double lat) {
 
         handler.post(new Runnable() {
             @Override
@@ -121,6 +122,9 @@ public class MainActivity extends AppCompatActivity implements EnvironmentInterf
                 heighView.setText(heightIn_m + " m");
 
                 speedView.setText(getSpeedIn_kmH + " km/h");
+
+                avrSpeedView.setText("Avr:"+avrSpeedIn_kmH);
+
                 distanceView.setText(distanceTraveledIn_m + " m");
 
                 String statusText = "Long:" + lon + " Lat:" + lat;
