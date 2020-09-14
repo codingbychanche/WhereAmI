@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    tools:context=".MainActivity">
+
+    <ProgressBar
+        android:id="@+id/waiting_for_gps_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></ProgressBar>
+
+    <TextView
+        android:id="@+id/name_and_address_of_current_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="name_and_address"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/alt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:hint="remark"
+        android:text="@string/altitude_remark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/time_of_sunset" />
+
+    <TextView
+        android:id="@+id/speed_remerk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="remark"
+        android:text="@string/speed_remark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/high" />
+
+    <TextView
+        android:id="@+id/distance_traveled_remark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="remark"
+        android:text="@string/distance_remark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/speed" />
+
+    <TextView
+        android:id="@+id/high"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="high"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/alt" />
+
+    <TextView
+        android:id="@+id/speed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="speed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/speed_remerk" />
+
+    <TextView
+        android:id="@+id/distance_traveled"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="distance"
+        app:layout_constraintEnd_toEndOf="@+id/speed"
+        app:layout_constraintStart_toStartOf="@+id/speed"
+        app:layout_constraintTop_toBottomOf="@+id/distance_traveled_remark" />
+
+    <TextView
+        android:id="@+id/gps_coordinates"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="coordinates"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/gps_status_messages"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="status"
+        app:layout_constraintBottom_toTopOf="@+id/gps_coordinates"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/resetDistance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Reset"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/distance_traveled" />
+
+    <TextView
+        android:id="@+id/time_zone_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="name of timezone"
+        android:text="@string/name_of_timezone_remark"
+        app:layout_constraintStart_toStartOf="@+id/name_and_address_of_current_location"
+        app:layout_constraintTop_toBottomOf="@+id/name_and_address_of_current_location" />
+
+
+    <TextView
+        android:id="@+id/time_of_sunrise"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="sunrise"
+        android:text="@string/sunrise_remark"
+        app:layout_constraintStart_toStartOf="@+id/time_zone_name"
+        app:layout_constraintTop_toBottomOf="@+id/time_zone_name" />
+
+    <TextView
+        android:id="@+id/time_of_sunset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="sunset"
+        android:text="@string/sunset_remark"
+        app:layout_constraintStart_toStartOf="@+id/time_of_sunrise"
+        app:layout_constraintTop_toBottomOf="@+id/time_of_sunrise" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

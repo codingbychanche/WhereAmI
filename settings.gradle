@@ -1,0 +1,2 @@
+include ':app', ':locationlibrary'
+rootProject.name='Whre am I'

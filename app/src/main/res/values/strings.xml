@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Whre am I</string>
+
+    <!-- Main -->
+
+    <string name="altitude_remark">Höhe</string>
+    <string name="speed_remark">Geschwindigkeit</string>
+    <string name="distance_remark">Zurückgelegter Weg</string>
+    <string name="sunrise_remark">Sonnenaufgang</string>
+    <string name="sunset_remark">Sonnenuntergang</string>
+
+    <string name="name_of_timezone_remark">Zeitzone</string>
+
+</resources>
